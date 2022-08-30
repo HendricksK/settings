@@ -5,6 +5,7 @@ import (
 
 	// "database/sql"
 	// "github.com/go-sql-driver/mysql"
+	api "https://github.com/hendricksakurvin/settings/api"
 )
 
 type Setting struct {
@@ -37,6 +38,7 @@ func main() {
 	fmt.Println("hello it's me")
 	fmt.Println(settings)
 	fmt.Println(getSettingById(12))
+	api.Run()
 }
 
 func getSettingById(id uint64) Setting {
