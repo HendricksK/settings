@@ -5,7 +5,7 @@ import (
 
 	// "database/sql"
 	// "github.com/go-sql-driver/mysql"
-	api "https://github.com/hendricksakurvin/settings/api"
+	api "github.com/hendricksakurvin/settings/api"
 )
 
 type Setting struct {

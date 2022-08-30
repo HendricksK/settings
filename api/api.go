@@ -7,6 +7,6 @@ import (
 	// "github.com/go-sql-driver/mysql"
 )
 
-func run () void {
+func Run () {
 	fmt.Println("bagel")
 }
