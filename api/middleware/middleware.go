@@ -3,7 +3,7 @@ package middleware
 import (
 	"net/http"
 
-	"github.com/hendricksakurvin/api/controllers"
+	"github.com/hendricksakurvin/settings/api/controllers"
 )
 
 func SetMiddlewareJSON(next http.HandlerFunc) http.HandlerFunc {
