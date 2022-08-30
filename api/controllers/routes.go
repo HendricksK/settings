@@ -8,5 +8,5 @@ import (
 
 func (s *Server) initializeRoutes() {
 	fmt.Println("bagel routes")
-	s.Router.HandleFunc("/", middleware.SetMiddlewareJSON(s.Home)).Methods("GET")
+	s.Router.HandleFunc("/", middleware.SetMiddlewareJSON(s.Setting)).Methods("GET")
 }
