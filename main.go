@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 
-	// "database/sql"
-	// "github.com/go-sql-driver/mysql"
 	api "github.com/hendricksakurvin/settings/api"
 )
 
