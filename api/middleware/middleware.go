@@ -1,8 +1,9 @@
-package middlewares
+package middleware
 
 import (
-	"errors"
 	"net/http"
+
+	"github.com/hendricksakurvin/api/controllers"
 )
 
 func SetMiddlewareJSON(next http.HandlerFunc) http.HandlerFunc {
