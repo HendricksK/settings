@@ -1,5 +1,10 @@
 # furry-meme
 
+if you are changing env
+run 
+docker-compose down --remove-orphans --volumes
+docker-compose up --build
+
 ## first time build docker-compose up --build 
 else 
 ## docker-compose up
