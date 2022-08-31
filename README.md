@@ -1,6 +1,12 @@
 # furry-meme
 
+## first time build docker-compose up --build 
+else 
+## docker-compose up
+
 go run main.go
+or
+air
 
 ## will eventually add some event handling here
 ## https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-go 
