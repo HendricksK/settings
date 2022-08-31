@@ -1,10 +1,4 @@
-package main
-
-import (
-	"fmt"
-
-	api "github.com/hendricksakurvin/settings/api"
-)
+package entities
 
 type Setting struct {
 	Id uint64 `json:"id"`
@@ -29,14 +23,7 @@ var settings = []Setting {
 	
 }
 
-func main() {
-	fmt.Println("hello it's me")
-	fmt.Println(settings)
-	fmt.Println(getSettingById(12))
-	api.Run()
-}
-
-func getSettingById(id uint64) Setting {
+func GetSettingById(id uint64) Setting {
 	var data Setting
 
 	for _, setting := range settings {
@@ -47,4 +34,3 @@ func getSettingById(id uint64) Setting {
 
 	return data
 }
-
