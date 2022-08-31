@@ -23,6 +23,11 @@ var settings = []Setting {
 	
 }
 
+
+func (s *Setting) GetSettings() []Setting {
+	return settings
+}
+
 func (s *Setting) GetSettingById(id uint64) Setting {
 	var data Setting
 
