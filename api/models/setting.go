@@ -1,4 +1,4 @@
-package setting
+package models
 
 type Setting struct {
 	Id uint64 `json:"id"`
