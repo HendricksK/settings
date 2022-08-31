@@ -23,7 +23,7 @@ var settings = []Setting {
 	
 }
 
-func GetSettingById(id uint64) Setting {
+func (s *Setting) GetSettingById(id uint64) Setting {
 	var data Setting
 
 	for _, setting := range settings {
