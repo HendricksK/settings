@@ -1,4 +1,4 @@
-package entities
+package setting
 
 type Setting struct {
 	Id uint64 `json:"id"`
