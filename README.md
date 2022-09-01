@@ -20,3 +20,7 @@ air
 
 ## thank you Victor Steven 
 ## https://levelup.gitconnected.com/dockerized-crud-restful-api-with-go-gorm-jwt-postgresql-mysql-and-testing-61d731430bd8
+
+
+## migrations via GORM
+## https://gorm.io/docs/migration.html
