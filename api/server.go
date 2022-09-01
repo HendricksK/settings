@@ -25,7 +25,7 @@ func Run() {
 
 	// seed.Load(server.DB)
 	// Will build a custom seeder at a later stage
-
-	server.Run(":8080")
+	// STUPID APPLE! https://medium.com/@leeprovoost/suppressing-accept-incoming-network-connections-warnings-on-osx-7665b33927ca
+	server.Run("localhost:8080")
 
 }

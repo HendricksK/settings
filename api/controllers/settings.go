@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"fmt"
 	"strconv"
+	"encoding/json"
+	"io/ioutil"
 
 	"github.com/gorilla/mux"
 	"github.com/hendricksakurvin/settings/api/responses"
@@ -11,17 +13,20 @@ import (
 
 )
 
-func (server *Server) Setting(w http.ResponseWriter, r *http.Request) {
-	responses.JSON(w, http.StatusOK, "Here lies some settings and a bagel :)")
+func (server *Server) Home(w http.ResponseWriter, r *http.Request) {
+	responses.JSON(w, http.StatusOK, "Baby come back, any kind of fool could see " +
+		"There was something in everything about you " +
+		"Baby come back, you can blame it all on me " +
+		"I was wrong and I just can't live without you")
 }
 
-func (server *Server) GetSAllettings(w http.ResponseWriter, r *http.Request) {
+func (server *Server) GetAllSettings(w http.ResponseWriter, r *http.Request) {
 	var setting = models.Setting{}
-	fmt.Println(setting.GetSettings())
-	responses.JSON(w, http.StatusOK, setting.GetSettings())
+	fmt.Println(setting.GetAll())
+	responses.JSON(w, http.StatusOK, setting.GetAll())
 }
 
-func (server *Server) GetSetting(w http.ResponseWriter, r *http.Request) {
+func (server *Server) ReadSetting(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, err :=  strconv.ParseUint(vars["id"], 0, 64)
 
@@ -30,7 +35,7 @@ func (server *Server) GetSetting(w http.ResponseWriter, r *http.Request) {
 		responses.JSON(w, http.StatusBadRequest, "im all out of love im so lost without you")
 		return
 	}
-	
+
 	var setting = models.Setting{}
 	data := setting.GetSettingById(id)
 
@@ -39,5 +44,29 @@ func (server *Server) GetSetting(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	responses.JSON(w, http.StatusOK, setting.GetSettingById(id))
+	responses.JSON(w, http.StatusOK, data)
+}
+
+func (server *Server) CreateSetting(w http.ResponseWriter, r *http.Request) {
+	body, err := ioutil.ReadAll(r.Body)
+	setting := models.Setting{}
+	err = json.Unmarshal(body, &setting)
+
+	if err != nil {
+		responses.JSON(w, http.StatusBadRequest, "im all out of love im so lost without you")
+	}
+
+	settingCreated, err := setting.Create(server.DB)
+
+	responses.JSON(w, http.StatusOK, settingCreated)
+}
+
+func (server *Server) UpdateSetting(w http.ResponseWriter, r *http.Request) {
+	var setting = models.Setting{}
+	responses.JSON(w, http.StatusOK, setting.Update())
+}
+
+func (server *Server) DeleteSetting(w http.ResponseWriter, r *http.Request) {
+	var setting = models.Setting{}
+	responses.JSON(w, http.StatusOK, setting.Delete())
 }

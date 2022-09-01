@@ -1,5 +1,11 @@
 package models
 
+import (
+	// "errors"
+
+	"github.com/jinzhu/gorm"
+)
+
 type Setting struct {
 	Id uint64 `json:"id"`
 	Identifier string `json:"identifier"`
@@ -24,7 +30,7 @@ var settings = []Setting {
 }
 
 
-func (s *Setting) GetSettings() []Setting {
+func (s *Setting) GetAll() []Setting {
 	return settings
 }
 
@@ -38,4 +44,21 @@ func (s *Setting) GetSettingById(id uint64) Setting {
 	}
 
 	return data
+}
+
+func (s *Setting) Create(db *gorm.DB) (*Setting, error) {
+	var err error
+	err = db.Debug().Create(&s).Error
+	if err != nil {
+		return &Setting{}, err
+	}
+	return s, nil
+}
+
+func (s *Setting) Update() Setting {
+	return settings[0]	
+}
+
+func (s *Setting) Delete() Setting {
+	return settings[0]
 }
